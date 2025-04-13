@@ -5,19 +5,20 @@ import jm.task.core.jdbc.util.Util;
 
 public class Main {
     public static void main(String[] args) {
-        UserService userService = new UserServiceImpl();
-
-        userService.createUsersTable();
-        userService.saveUser("Сергей", "Литвиненко", (byte) 33);
-        userService.saveUser("Настя", "Яковлева", (byte) 23);
-        userService.saveUser("Артём", "Петров", (byte) 28);
-        userService.saveUser("Никита", "Барановский", (byte) 45);
-        userService.getAllUsers();
-        userService.cleanUsersTable();
-        userService.dropUsersTable();
-        Util.closeConnection();
+//        UserService userService = new UserServiceImpl();
+//
+//        userService.createUsersTable();
+//        userService.saveUser("Сергей", "Литвиненко", (byte) 33);
+//        userService.saveUser("Настя", "Яковлева", (byte) 23);
+//        userService.saveUser("Артём", "Петров", (byte) 28);
+//        userService.saveUser("Никита", "Барановский", (byte) 45);
+//        userService.getAllUsers();
+//        userService.cleanUsersTable();
+//        userService.dropUsersTable();
+//        Util.closeConnection();
 
 
         //Util.getConnection(); // тест соединение
+        //Util.getSessionFactory(); // тест соединения Hibernate
     }
 }
