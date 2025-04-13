@@ -52,21 +52,17 @@ public class Util {
                 settings.put("hibernate.connection.username", DB_USERNAME);
                 settings.put("hibernate.connection.password", DB_PASSWORD);
                 settings.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-                settings.put("hibernate.show_sql", "true");
                 settings.put("hibernate.format_sql", "true");
                 settings.put("hibernate.hbm2ddl.auto", "update");
 
-                Configuration configuration = new Configuration();
-                configuration.setProperties(settings);
-                configuration.addAnnotatedClass(User.class);
+                Configuration configuration = new Configuration()
+                        .setProperties(settings)
+                        .addAnnotatedClass(User.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
 
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-
-                System.out.println("Hibernate SessionFactory создана!");
-
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("Ошибка при создании SessionFactory!");
@@ -74,4 +70,5 @@ public class Util {
         }
         return sessionFactory;
     }
+
 }
