@@ -19,8 +19,8 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
             String sql = "CREATE TABLE IF NOT EXISTS users " +
                     "(id INT PRIMARY KEY AUTO_INCREMENT," +
-                    "name VARCHAR(45), " +
-                    "lastname VARCHAR(45), " +
+                    "name VARCHAR(50)," +
+                    "lastname VARCHAR(50)," +
                     "age TINYINT)";
 
             try (Statement statement = connection.createStatement()) {
@@ -57,6 +57,7 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             try {
                 connection.rollback();
+                System.err.println("Ошибка при добавлении пользователя: " + e.getMessage());
             } catch (SQLException rollbackEx) {
                 rollbackEx.printStackTrace();
             }
